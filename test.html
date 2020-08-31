@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./js/jquery.min.js"></script>
+</head>
+<body>
+    <button id="btn">点击</button>
+
+    <script>
+        // let btn = document.getElementsByTagName("button")[0];
+        // // DOM2的事件绑定是基于事件池的，发布订阅
+        // btn.addEventListener("click",()=>{
+        //     console.log("1111");
+        // })
+        // btn.addEventListener("click",()=>{
+        //     console.log("2222");
+        // })
+
+        let f1 = function(e){
+            console.log("第一："+e);
+        }
+        let f2 = function(_,e){
+            console.log("第二："+e);
+        }
+        let $plan = $.Callbacks();
+        // 订阅这两件事
+        $plan.add(f1);
+        $plan.add(f2);
+
+        $("#btn").click(function(){
+            $plan.fire("lala",99);  // 发布
+        })
+    </script>
+</body>
+</html>
