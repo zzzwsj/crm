@@ -80,8 +80,9 @@ $(function () {
 					客户管理
 				</h3>
 				<nav class="item">
-					<a href="page/customerlist.html" target="iframeBox">客户列表</a>
-					<a href="page/customeradd.html" target="iframeBox">新增客户</a>
+                <a href="page/customerlist.html?lx=my" target="iframeBox">我的客户</a>
+                <a href="page/customerlist.html?lx=all" target="iframeBox">全部客户</a>
+                <a href="page/customeradd.html" target="iframeBox">新增客户</a>
 				</nav>
             </div>
             `
@@ -98,7 +99,7 @@ $(function () {
             let text = $(item).attr("text");
             return text === "客户管理";
         });
-        console.log($group1);
+        // console.log($group1);
         let $group2 = $itemBoxList.filter((_,item)=>{
             let text = $(item).attr("text");
             return /^(员工管理|部门管理|职位管理)/.test(text);
